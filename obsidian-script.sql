@@ -65,8 +65,23 @@ email varchar(90)
 );
 
 create table carbonFootprint(
-idCarbonFootprint int primary key AUTO_INCREMENT
+idCarbonFootprint int primary key AUTO_INCREMENT,
+gas varchar(15),
+setorEmissao varchar(30),
+estado varchar(45),
+doisMilDoze decimal,
+doisMilTreze decimal, 
+doisMilQuatorze decimal,
+doisMilQuinze decimal, 
+doisMilDezesseis decimal,
+doisMilDezessete decimal,
+doisMilDezoito decimal,
+doisMilDezenove decimal, 
+doisMilVinte decimal,
+doisMilVinteUm decimal,
+doisMilVinteDois decimal
 );
+
 
 
 
