@@ -27,6 +27,8 @@ idCargo int primary key AUTO_INCREMENT,
 tipo varchar(255)
 );
 
+insert into cargo (tipo) values ("Representante Legal");
+
 create table telefone(
 idTelefone int primary key AUTO_INCREMENT,
 ddd varchar(3),
@@ -39,6 +41,7 @@ nome varchar(60),
 cpf varchar(15),
 email varchar(90),
 senha varchar(30),
+resetSenha boolean default true,
 fkEmpresa int,
 fkCargo int,
 constraint fkCargo FOREIGN KEY (fkCargo)
@@ -48,43 +51,51 @@ constraint fkTelefone FOREIGN KEY(fkTelefone)
 references telefone(idTelefone)
 );
 
+select * from funcionario;
+
+select resetSenha from funcionario where idFuncionario = 2;
+
+UPDATE funcionario SET senha = 'asdasda', resetSenha = false WHERE idFuncionario = 2;
+
 create table administrador(
 idAdministrador int primary key AUTO_INCREMENT,
 nome varchar(255),
+cpf varchar(14),
 senha varchar(255)
 );
+
+insert into administrador (nome, cpf, senha) values ("Igor", "483.340.618-70", "123");
 
 create table requisicao(
 idRequisicao int primary key AUTO_INCREMENT,
 razaoSocial varchar(90),
 nomeFantasia varchar(70),
 cnpj varchar(18),
-nome varchar(60),
+nomeFunc varchar(60),
 cpf varchar(15),
-email varchar(90)
+emailFunc varchar(90),
+dataCriada TIMESTAMP default current_TIMESTAMP,
+statusReq varchar(40)
 );
 
-create table carbonFootprint(
-idCarbonFootprint int primary key AUTO_INCREMENT,
-gas varchar(15),
-setorEmissao varchar(30),
-estado varchar(45),
-doisMilDoze decimal,
-doisMilTreze decimal, 
-doisMilQuatorze decimal,
-doisMilQuinze decimal, 
-doisMilDezesseis decimal,
-doisMilDezessete decimal,
-doisMilDezoito decimal,
-doisMilDezenove decimal, 
-doisMilVinte decimal,
-doisMilVinteUm decimal,
-doisMilVinteDois decimal
-);
+select * from requisicao;
 
-
-
-
-
-
- 
+create table carbonFootprint (
+    idCarbonFootprint int primary key auto_increment,
+    gas varchar(45),
+    setorEmissao varchar(30),
+    estado varchar(45),
+    doisMilDoze decimal,
+    doisMilTreze decimal,
+    doisMilQuatorze decimal,
+    doisMilQuinze decimal,
+    doisMilDezesseis decimal,
+    doisMilDezessete decimal,
+    doisMilDezoito decimal,
+    doisMilDezenove decimal,
+    doisMilVinte decimal,
+    doisMilVinteUm decimal,
+    doisMilVinteDois decimal
+	);
+    
+    
