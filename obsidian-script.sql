@@ -75,8 +75,7 @@ nomeFunc varchar(60),
 cpf varchar(15),
 emailFunc varchar(90),
 dataCriada TIMESTAMP default current_TIMESTAMP,
-statusReq varchar(40),
-token varchar(50)
+statusReq varchar(40)
 );
 
 select * from requisicao;
